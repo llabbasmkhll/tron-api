@@ -7,7 +7,7 @@
     "require": {
         "php": ">=8.0",
         "guzzlehttp/guzzle": "^7.2",
-        "web3p/web3.php": "dev-master",
+        "web3p/web3.php": "*",
         "kornrunner/secp256k1": "^0.2",
         "simplito/elliptic-php": "^1.0",
         "ext-json": "*",
@@ -33,6 +33,5 @@
         "sort-packages": true
     },
 
-    "minimum-stability": "dev",
     "prefer-stable": true
 }
