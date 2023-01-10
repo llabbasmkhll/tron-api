@@ -19,13 +19,13 @@
     },
     "autoload": {
         "psr-4": {
-            "IEXBase\\TronAPI\\": "src"
+            "Llabbasmkhll\\TronAPI\\": "src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "IEXBase\\TronAPI\\Test\\": "tests"
+            "Llabbasmkhll\\TronAPI\\Test\\": "tests"
         }
     },
 
