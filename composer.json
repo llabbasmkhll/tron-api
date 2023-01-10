@@ -1,28 +1,13 @@
 {
-    "name": "iexbase/tron-api",
+    "name": "llabbasmkhll/tron-api",
     "description": "A PHP API for interacting with Tron (Trx)",
     "license": "MIT",
     "type":   "library",
-    "homepage": "https://github.com/iexbase/tron-api",
-    "authors": [
-        {
-            "name": "Shamsudin Serderov",
-            "email": "steein.shamsudin@gmail.com"
-        }
-    ],
-    "keywords": [
-        "iexbase",
-        "tron-lib",
-        "tron-php",
-        "tron-api",
-        "tron-rest-api"
-    ],
 
     "require": {
         "php": ">=8.0",
-        "comely-io/data-types": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
-        "iexbase/web3.php": "^2.0.1",
+        "web3p/web3.php": "dev-master",
         "kornrunner/secp256k1": "^0.2",
         "simplito/elliptic-php": "^1.0",
         "ext-json": "*",
@@ -30,7 +15,7 @@
     },
 
     "require-dev": {
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.0|^7.0|^8.0|^9.0"
     },
     "autoload": {
         "psr-4": {
