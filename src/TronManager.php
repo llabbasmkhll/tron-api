@@ -101,11 +101,11 @@ class TronManager
         $split = explode('/', $url);
         if (in_array($split[0], ['walletsolidity', 'walletextension'])) {
             $response = $this->solidityNode()->request($url, $params, $method);
-        } elseif (in_array($split[0], ['event'])) {
+        } elseif ($split[0] == 'event') {
             $response = $this->eventServer()->request($url, $params, 'get');
-        } elseif (in_array($split[0], ['trx-sign'])) {
+        } elseif ($split[0] == 'trx-sign') {
             $response = $this->signServer()->request($url, $params, 'post');
-        } elseif (in_array($split[0], ['api'])) {
+        } elseif ($split[0] == 'api') {
             $response = $this->explorer()->request($url, $params, 'get');
         } else {
             $response = $this->fullNode()->request($url, $params, $method);

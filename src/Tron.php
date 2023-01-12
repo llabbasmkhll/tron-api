@@ -57,35 +57,31 @@ class Tron implements TronInterface
         'base58' => null,
         'hex'    => null,
     ];
-
+    public TronScan $scan;
     /**
      * Private key
      *
      * @var string
      */
     protected $privateKey;
-
     /**
      * Default block
      *
      * @var string|integer|bool
      */
     protected $defaultBlock = 'latest';
-
     /**
      * Transaction Builder
      *
      * @var TransactionBuilder
      */
     protected TransactionBuilder $transactionBuilder;
-
     /**
      * Transaction Builder
      *
      * @var TransactionBuilder
      */
     protected TransactionBuilder $trc20Contract;
-
     /**
      * Object Result
      *
@@ -125,6 +121,8 @@ class Tron implements TronInterface
                 'signServer'   => $signServer,
             ])
         );
+
+        $this->setScan(new TronScan());
 
         $this->transactionBuilder = new TransactionBuilder($this);
     }
@@ -1452,5 +1450,25 @@ class Tron implements TronInterface
         return $this->manager->request('/wallet/getassetissuebyid', [
             'value' => $token_id,
         ]);
+    }
+
+    /**
+     * @param  \IEXBase\TronAPI\TronScan  $scan
+     *
+     * @return Tron
+     */
+    public function setScan(TronScan $scan): Tron
+    {
+        $this->scan = $scan;
+
+        return $this;
+    }
+
+    /**
+     * @return \IEXBase\TronAPI\TronScan
+     */
+    public function scan(): TronScan
+    {
+        return $this->scan;
     }
 }
