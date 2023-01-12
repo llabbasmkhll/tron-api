@@ -17,7 +17,6 @@ declare(strict_types=1);
 namespace IEXBase\TronAPI;
 
 use Elliptic\EC;
-use IEXBase\TronAPI\Exception\TRC20Exception;
 use IEXBase\TronAPI\Support\Base58;
 use IEXBase\TronAPI\Support\Base58Check;
 use IEXBase\TronAPI\Support\Crypto;
@@ -52,7 +51,7 @@ class Tron implements TronInterface
      *
      * @var array
     */
-    public $address = [
+    public array $address = [
         'base58'    =>  null,
         'hex'       =>  null
     ];
@@ -76,40 +75,40 @@ class Tron implements TronInterface
      *
      * @var TransactionBuilder
      */
-    protected $transactionBuilder;
+    protected TransactionBuilder $transactionBuilder;
 
     /**
      * Transaction Builder
      *
      * @var TransactionBuilder
      */
-    protected $trc20Contract;
+    protected TransactionBuilder $trc20Contract;
 
     /**
      * Provider manager
      *
      * @var TronManager
     */
-    protected $manager;
+    protected TronManager $manager;
 
     /**
      * Object Result
      *
      * @var bool
     */
-    protected $isObject = false;
+    protected bool $isObject = false;
 
     /**
      * Create a new Tron object
      *
-     * @param HttpProviderInterface $fullNode
-     * @param HttpProviderInterface $solidityNode
-     * @param HttpProviderInterface|null $eventServer
-     * @param HttpProviderInterface|null $signServer
-     * @param HttpProviderInterface|null $explorer
-     * @param string $privateKey
-
-     * @throws TronException
+     * @param  \IEXBase\TronAPI\Provider\HttpProviderInterface|null  $fullNode
+     * @param  \IEXBase\TronAPI\Provider\HttpProviderInterface|null  $solidityNode
+     * @param  HttpProviderInterface|null  $eventServer
+     * @param  HttpProviderInterface|null  $signServer
+     * @param  HttpProviderInterface|null  $explorer
+     * @param  string|null  $privateKey
+     *
+     * @throws \IEXBase\TronAPI\Exception\TronException
      */
     public function __construct(?HttpProviderInterface $fullNode = null,
                                 ?HttpProviderInterface $solidityNode = null,

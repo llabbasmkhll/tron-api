@@ -9,11 +9,12 @@ trait ManagesTronscan
     /**
      * Transactions from explorer
      *
-     * @param array $options
+     * @param  array  $options
+     *
      * @return array
      * @throws TronException
      */
-    public function getTransactionByAddress($options = [])
+    public function getTransactionByAddress(array $options = []): array
     {
         if(empty($options)) {
             throw new TronException('Parameters must not be empty.');

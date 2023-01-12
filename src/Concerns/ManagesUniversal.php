@@ -40,10 +40,10 @@ trait ManagesUniversal
                 throw new ErrorException($item[0].' invalid address');
             }
 
-            array_push($this->attribute['balances'], [
-                'address'   =>  $item[0],
-                'balance'   =>  $this->getBalance($item[0], $item[1])
-            ]);
+            $this->attribute['balances'][] = [
+                'address' => $item[0],
+                'balance' => $this->getBalance($item[0], $item[1])
+            ];
         }
 
         return $this->attribute['balances'];
@@ -75,9 +75,7 @@ trait ManagesUniversal
                 throw new ErrorException($item[0].' invalid address');
             }
 
-            array_push($this->attribute['one_to_many'],
-                $this->send($item[0], $item[1], $from)
-            );
+            $this->attribute['one_to_many'][] = $this->send($item[0], $item[1], $from);
         }
 
         return $this->attribute['one_to_many'];
